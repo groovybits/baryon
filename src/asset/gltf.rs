@@ -49,6 +49,8 @@ fn load_texture(mut data: gltf::image::Data, context: &mut crate::Context) -> Te
         gltf::image::Format::R16 => wgpu::TextureFormat::R16Float,
         gltf::image::Format::R16G16 => wgpu::TextureFormat::Rg16Float,
         gltf::image::Format::R16G16B16A16 => wgpu::TextureFormat::Rgba16Float,
+        gltf::image::Format::R32G32B32FLOAT=> wgpu::TextureFormat::Rgba32Float,
+        gltf::image::Format::R32G32B32A32FLOAT=> wgpu::TextureFormat::Rgba32Float,
     };
 
     let desc = wgpu::TextureDescriptor {

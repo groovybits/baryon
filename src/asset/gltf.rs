@@ -23,7 +23,7 @@ fn load_texture(mut data: gltf::image::Data, context: &mut crate::Context) -> Te
     let format = match data.format {
         gltf::image::Format::R8 => wgpu::TextureFormat::R8Unorm,
         gltf::image::Format::R8G8 => wgpu::TextureFormat::Rg8Unorm,
-        gltf::image::Format::R8G8B8 | gltf::image::Format::B8G8R8 => {
+        gltf::image::Format::R8G8B8 | gltf::image::Format::R8G8B8 => {
             log::warn!(
                 "Converting {}x{} texture from RGB to RGBA...",
                 data.width,
@@ -45,7 +45,7 @@ fn load_texture(mut data: gltf::image::Data, context: &mut crate::Context) -> Te
         }
         gltf::image::Format::R16G16B16 => panic!("RGB16 is outdated"),
         gltf::image::Format::R8G8B8A8 => wgpu::TextureFormat::Rgba8UnormSrgb,
-        gltf::image::Format::B8G8R8A8 => wgpu::TextureFormat::Bgra8UnormSrgb,
+        gltf::image::Format::R8G8B8A8=> wgpu::TextureFormat::Bgra8UnormSrgb,
         gltf::image::Format::R16 => wgpu::TextureFormat::R16Float,
         gltf::image::Format::R16G16 => wgpu::TextureFormat::Rg16Float,
         gltf::image::Format::R16G16B16A16 => wgpu::TextureFormat::Rgba16Float,
